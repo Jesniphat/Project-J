@@ -16,5 +16,10 @@ prrject_j.config(function($stateProvider, $urlRouterProvider){
       url: "^/webboard",
       templateUrl: "/view/index_admin/webboard-list.html",
       controller: "webboardListController",
+    })
+    .state("create", {
+      url: "^/webboardCreate",
+      templateUrl: "/view/index_admin/webboard-create.html",
+      controller: "webboardCreateController",
     });
 });

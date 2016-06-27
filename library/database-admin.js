@@ -61,7 +61,6 @@ module.exports = new function() {
 
 //////////////////  saveHeader method  /////////////////////////////////////////
   this.saveHeader = function(user_id, title, content, callbackok, callbackerror) {
-    var db = conn.init();
     var $scope = {};
     $scope.getListTopic = [];
 
@@ -88,7 +87,8 @@ module.exports = new function() {
                 console.log("last id = ", $scope.lastId);
   							deferred.resolve("That Ok");
   						} else {
-  							deferred.reject("On data");
+                $scope.lastId = 0;
+  							deferred.resolve("That On Last Id");
   						}
               db.close();
   					}

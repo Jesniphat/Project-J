@@ -24,4 +24,20 @@ router.post('/webboard_list', function(req, res, next) {
   });
 });
 
+////////////////////////////////////////////////////////////////////////////////
+router.post("/save", function(req, res, next) {
+  webboard.saveHeader(/*permission.getID(req)*/'1', req.body.title, req.body.content, function(id){
+    res.json({
+      status:true,
+      id:id
+    });
+  }, function(errorMessage){
+    console.log("error m : ", errorMessage);
+    res.json({
+      status:false,
+      error:errorMessage
+    });
+  });
+});
+
 module.exports = router;
